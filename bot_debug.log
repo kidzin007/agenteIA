@@ -5500,3 +5500,702 @@ telegram.error.Conflict: Conflict: terminated by other getUpdates request; make 
 2025-06-09 19:54:17,901 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
 2025-06-09 19:54:17,901 - httpcore.http11 - DEBUG - send_request_body.complete
 2025-06-09 19:54:17,901 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:52,461 - __main__ - INFO - Baixando recursos NLTK necessários...
+2025-06-09 19:59:52,880 - __main__ - INFO - Verificando e baixando recursos NLTK necessários...
+2025-06-09 19:59:52,881 - __main__ - INFO - Baixando vader_lexicon para análise de sentimento...
+2025-06-09 19:59:52,881 - __main__ - INFO - Verificando modelo spaCy...
+2025-06-09 19:59:52,882 - __main__ - INFO - Modelo spaCy em português já está disponível
+2025-06-09 19:59:52,882 - __main__ - INFO - Inicialização de modelos NLP concluída
+2025-06-09 19:59:52,882 - __main__ - INFO - Iniciando bot...
+2025-06-09 19:59:52,882 - __main__ - INFO - Iniciando TelegramBot...
+2025-06-09 19:59:52,882 - __main__ - INFO - Iniciando configuração da API OpenAI...
+2025-06-09 19:59:52,883 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 19:59:52,883 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 19:59:52,891 - __main__ - INFO - Usando armazenamento local para dados dos usuários
+2025-06-09 19:59:52,891 - __main__ - INFO - Memória de usuários carregada: 1 usuários
+2025-06-09 19:59:52,902 - __main__ - INFO - Cliente OpenAI configurado com sucesso!
+2025-06-09 19:59:52,906 - __main__ - INFO - TelegramBot iniciado com sucesso!
+2025-06-09 19:59:52,906 - __main__ - INFO - Iniciando aplicação do bot...
+2025-06-09 19:59:52,906 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 19:59:52,907 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 19:59:52,915 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 19:59:52,915 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 19:59:52,923 - __main__ - INFO - Bot iniciado com sucesso! Iniciando polling...
+2025-06-09 19:59:52,924 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-06-09 19:59:52,924 - telegram.ext.ExtBot - DEBUG - Entering: get_me
+2025-06-09 19:59:52,928 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 19:59:53,219 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EECF77C50>
+2025-06-09 19:59:53,219 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000013EEED079B0> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 19:59:53,433 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EED39F450>
+2025-06-09 19:59:53,434 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:53,434 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 19:59:53,434 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 19:59:53,435 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 19:59:53,435 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:53,658 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 22:59:56 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'251'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 19:59:53,659 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getMe "HTTP/1.1 200 OK"
+2025-06-09 19:59:53,659 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 19:59:53,659 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 19:59:53,659 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 19:59:53,659 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 19:59:53,660 - telegram.ext.ExtBot - DEBUG - User(api_kwargs={'can_connect_to_business': False, 'has_main_web_app': False}, can_join_groups=True, can_read_all_group_messages=False, first_name='Agente', id=7652663463, is_bot=True, supports_inline_queries=False, username='AgenteIA_01_bot')
+2025-06-09 19:59:53,660 - telegram.ext.ExtBot - DEBUG - Exiting: get_me
+2025-06-09 19:59:53,660 - telegram.ext.ExtBot - DEBUG - This Bot is already initialized.
+2025-06-09 19:59:53,660 - telegram.ext.Updater - DEBUG - Updater started (polling)
+2025-06-09 19:59:53,661 - telegram.ext.Updater - DEBUG - Start network loop retry bootstrap del webhook
+2025-06-09 19:59:53,661 - telegram.ext.Updater - DEBUG - Deleting webhook
+2025-06-09 19:59:53,661 - telegram.ext.ExtBot - DEBUG - Entering: delete_webhook
+2025-06-09 19:59:53,661 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:53,662 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 19:59:53,662 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 19:59:53,662 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 19:59:53,662 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:53,882 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 22:59:56 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'68'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 19:59:53,883 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-09 19:59:53,884 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 19:59:53,884 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 19:59:53,884 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 19:59:53,884 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 19:59:53,884 - telegram.ext.ExtBot - DEBUG - True
+2025-06-09 19:59:53,885 - telegram.ext.ExtBot - DEBUG - Exiting: delete_webhook
+2025-06-09 19:59:53,885 - telegram.ext.Updater - DEBUG - Bootstrap done
+2025-06-09 19:59:53,885 - telegram.ext.Updater - DEBUG - Waiting for polling to start
+2025-06-09 19:59:53,885 - telegram.ext.Updater - DEBUG - Polling updates from Telegram started
+2025-06-09 19:59:53,885 - telegram.ext.Updater - DEBUG - Start network loop retry getting Updates
+2025-06-09 19:59:53,885 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 19:59:53,886 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 19:59:53,886 - telegram.ext.Application - INFO - Application started
+2025-06-09 19:59:54,098 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EED68F890>
+2025-06-09 19:59:54,098 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000013EEED07770> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 19:59:54,316 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EEE487BD0>
+2025-06-09 19:59:54,317 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:54,317 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 19:59:54,317 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 19:59:54,318 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 19:59:54,318 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:58,679 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:00:01 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 19:59:58,680 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 19:59:58,680 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 19:59:58,680 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 19:59:58,681 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 19:59:58,681 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 19:59:58,681 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 19:59:58,682 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 19:59:59,671 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 19:59:59,672 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 19:59:59,672 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 19:59:59,672 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 19:59:59,672 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 19:59:59,673 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:04,520 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:00:07 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:00:04,521 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:00:04,521 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:00:04,521 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:00:04,522 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:00:04,522 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:00:04,522 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:00:04,522 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:00:06,040 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:00:06,041 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:06,041 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:06,041 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:06,042 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:06,042 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:07,234 - telegram.ext.Application - DEBUG - Application received stop signal. Shutting down.
+2025-06-09 20:00:07,234 - telegram.ext.Updater - DEBUG - Stopping Updater
+2025-06-09 20:00:07,234 - telegram.ext.Updater - DEBUG - Waiting background polling task to finish up.
+2025-06-09 20:00:07,234 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=CancelledError()
+2025-06-09 20:00:07,235 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:00:07,235 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:00:07,235 - telegram.ext.Updater - DEBUG - Network loop retry getting Updates was cancelled
+2025-06-09 20:00:07,235 - telegram.ext.Updater - DEBUG - Calling `get_updates` one more time to mark all fetched updates as read.
+2025-06-09 20:00:07,235 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:00:07,236 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:00:07,468 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EEE529BD0>
+2025-06-09 20:00:07,469 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000013EEED07770> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:00:07,708 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x0000013EEEBD7E90>
+2025-06-09 20:00:07,708 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:07,709 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:07,709 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:07,709 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:07,710 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:50,756 - __main__ - INFO - Baixando recursos NLTK necessários...
+2025-06-09 20:00:51,158 - __main__ - INFO - Verificando e baixando recursos NLTK necessários...
+2025-06-09 20:00:51,160 - __main__ - INFO - Baixando vader_lexicon para análise de sentimento...
+2025-06-09 20:00:51,160 - __main__ - INFO - Verificando modelo spaCy...
+2025-06-09 20:00:51,160 - __main__ - INFO - Modelo spaCy em português já está disponível
+2025-06-09 20:00:51,160 - __main__ - INFO - Inicialização de modelos NLP concluída
+2025-06-09 20:00:51,160 - __main__ - INFO - Iniciando bot...
+2025-06-09 20:00:51,161 - __main__ - INFO - Iniciando TelegramBot...
+2025-06-09 20:00:51,161 - __main__ - INFO - Iniciando configuração da API OpenAI...
+2025-06-09 20:00:51,161 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:00:51,162 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:00:51,169 - __main__ - INFO - Usando armazenamento local para dados dos usuários
+2025-06-09 20:00:51,170 - __main__ - INFO - Memória de usuários carregada: 1 usuários
+2025-06-09 20:00:51,180 - __main__ - INFO - Cliente OpenAI configurado com sucesso!
+2025-06-09 20:00:51,184 - __main__ - INFO - TelegramBot iniciado com sucesso!
+2025-06-09 20:00:51,185 - __main__ - INFO - Iniciando aplicação do bot...
+2025-06-09 20:00:51,185 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:00:51,185 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:00:51,193 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:00:51,194 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:00:51,202 - __main__ - INFO - Bot iniciado com sucesso! Iniciando polling...
+2025-06-09 20:00:51,202 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-06-09 20:00:51,203 - telegram.ext.ExtBot - DEBUG - Entering: get_me
+2025-06-09 20:00:51,208 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:00:51,411 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EF878D0E10>
+2025-06-09 20:00:51,411 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001EF893779B0> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:00:51,616 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EF87CD1350>
+2025-06-09 20:00:51,617 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:51,617 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:51,617 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:51,617 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:51,617 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:51,816 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:00:54 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'251'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:00:51,817 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getMe "HTTP/1.1 200 OK"
+2025-06-09 20:00:51,817 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:00:51,817 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:00:51,817 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:00:51,818 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:00:51,818 - telegram.ext.ExtBot - DEBUG - User(api_kwargs={'can_connect_to_business': False, 'has_main_web_app': False}, can_join_groups=True, can_read_all_group_messages=False, first_name='Agente', id=7652663463, is_bot=True, supports_inline_queries=False, username='AgenteIA_01_bot')
+2025-06-09 20:00:51,818 - telegram.ext.ExtBot - DEBUG - Exiting: get_me
+2025-06-09 20:00:51,819 - telegram.ext.ExtBot - DEBUG - This Bot is already initialized.
+2025-06-09 20:00:51,819 - telegram.ext.Updater - DEBUG - Updater started (polling)
+2025-06-09 20:00:51,819 - telegram.ext.Updater - DEBUG - Start network loop retry bootstrap del webhook
+2025-06-09 20:00:51,819 - telegram.ext.Updater - DEBUG - Deleting webhook
+2025-06-09 20:00:51,819 - telegram.ext.ExtBot - DEBUG - Entering: delete_webhook
+2025-06-09 20:00:51,820 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:51,820 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:51,821 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:51,821 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:51,821 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:52,018 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:00:54 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'68'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:00:52,019 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-09 20:00:52,019 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:00:52,019 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:00:52,019 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:00:52,020 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:00:52,020 - telegram.ext.ExtBot - DEBUG - True
+2025-06-09 20:00:52,020 - telegram.ext.ExtBot - DEBUG - Exiting: delete_webhook
+2025-06-09 20:00:52,020 - telegram.ext.Updater - DEBUG - Bootstrap done
+2025-06-09 20:00:52,020 - telegram.ext.Updater - DEBUG - Waiting for polling to start
+2025-06-09 20:00:52,020 - telegram.ext.Updater - DEBUG - Polling updates from Telegram started
+2025-06-09 20:00:52,021 - telegram.ext.Updater - DEBUG - Start network loop retry getting Updates
+2025-06-09 20:00:52,021 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:00:52,021 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:00:52,022 - telegram.ext.Application - INFO - Application started
+2025-06-09 20:00:52,253 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EF89221A90>
+2025-06-09 20:00:52,253 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001EF89377770> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:00:52,493 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EF89243C90>
+2025-06-09 20:00:52,493 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:52,494 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:52,494 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:52,494 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:52,494 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:56,865 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:00:59 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:00:56,866 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:00:56,866 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:00:56,866 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:00:56,866 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:00:56,867 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:00:56,867 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:00:56,867 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:00:57,877 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:00:57,878 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:00:57,878 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:00:57,879 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:00:57,879 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:00:57,879 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:02,759 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:01:05 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:01:02,760 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:01:02,760 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:01:02,761 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:01:02,761 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:01:02,761 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:01:02,761 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:01:02,762 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:01:04,253 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:01:04,254 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:04,254 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:01:04,254 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:01:04,255 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:01:04,255 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:07,871 - telegram.ext.Application - DEBUG - Application received stop signal. Shutting down.
+2025-06-09 20:01:07,872 - telegram.ext.Updater - DEBUG - Stopping Updater
+2025-06-09 20:01:07,872 - telegram.ext.Updater - DEBUG - Waiting background polling task to finish up.
+2025-06-09 20:01:07,872 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=CancelledError()
+2025-06-09 20:01:07,872 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:01:07,873 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:01:07,873 - telegram.ext.Updater - DEBUG - Network loop retry getting Updates was cancelled
+2025-06-09 20:01:07,873 - telegram.ext.Updater - DEBUG - Calling `get_updates` one more time to mark all fetched updates as read.
+2025-06-09 20:01:07,873 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:01:07,874 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:01:08,077 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001EF87E4DA10>
+2025-06-09 20:01:08,077 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001EF89377770> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:01:43,583 - __main__ - INFO - Baixando recursos NLTK necessários...
+2025-06-09 20:01:43,974 - __main__ - INFO - Verificando e baixando recursos NLTK necessários...
+2025-06-09 20:01:43,975 - __main__ - INFO - Baixando vader_lexicon para análise de sentimento...
+2025-06-09 20:01:43,976 - __main__ - INFO - Verificando modelo spaCy...
+2025-06-09 20:01:43,976 - __main__ - INFO - Modelo spaCy em português já está disponível
+2025-06-09 20:01:43,976 - __main__ - INFO - Inicialização de modelos NLP concluída
+2025-06-09 20:01:43,976 - __main__ - INFO - Iniciando bot...
+2025-06-09 20:01:43,976 - __main__ - INFO - Iniciando TelegramBot...
+2025-06-09 20:01:43,977 - __main__ - INFO - Iniciando configuração da API OpenAI...
+2025-06-09 20:01:43,977 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:01:43,977 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:01:43,985 - __main__ - INFO - Usando armazenamento local para dados dos usuários
+2025-06-09 20:01:43,986 - __main__ - INFO - Memória de usuários carregada: 1 usuários
+2025-06-09 20:01:43,996 - __main__ - INFO - Cliente OpenAI configurado com sucesso!
+2025-06-09 20:01:44,000 - __main__ - INFO - TelegramBot iniciado com sucesso!
+2025-06-09 20:01:44,000 - __main__ - INFO - Iniciando aplicação do bot...
+2025-06-09 20:01:44,001 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:01:44,001 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:01:44,008 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:01:44,009 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:01:44,018 - __main__ - INFO - Bot iniciado com sucesso! Iniciando polling...
+2025-06-09 20:01:44,018 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-06-09 20:01:44,019 - telegram.ext.ExtBot - DEBUG - Entering: get_me
+2025-06-09 20:01:44,023 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:01:44,226 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002138E382CD0>
+2025-06-09 20:01:44,226 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002138E4EB920> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:01:44,428 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000002138CE81B90>
+2025-06-09 20:01:44,429 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:44,429 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:01:44,429 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:01:44,429 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:01:44,429 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:44,630 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:01:47 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'251'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:01:44,630 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getMe "HTTP/1.1 200 OK"
+2025-06-09 20:01:44,631 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:01:44,631 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:01:44,631 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:01:44,631 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:01:44,632 - telegram.ext.ExtBot - DEBUG - User(api_kwargs={'can_connect_to_business': False, 'has_main_web_app': False}, can_join_groups=True, can_read_all_group_messages=False, first_name='Agente', id=7652663463, is_bot=True, supports_inline_queries=False, username='AgenteIA_01_bot')
+2025-06-09 20:01:44,632 - telegram.ext.ExtBot - DEBUG - Exiting: get_me
+2025-06-09 20:01:44,632 - telegram.ext.ExtBot - DEBUG - This Bot is already initialized.
+2025-06-09 20:01:44,632 - telegram.ext.Updater - DEBUG - Updater started (polling)
+2025-06-09 20:01:44,632 - telegram.ext.Updater - DEBUG - Start network loop retry bootstrap del webhook
+2025-06-09 20:01:44,632 - telegram.ext.Updater - DEBUG - Deleting webhook
+2025-06-09 20:01:44,632 - telegram.ext.ExtBot - DEBUG - Entering: delete_webhook
+2025-06-09 20:01:44,633 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:01:44,633 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:01:44,633 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:01:44,634 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:01:44,634 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:21,633 - __main__ - INFO - Baixando recursos NLTK necessários...
+2025-06-09 20:02:22,057 - __main__ - INFO - Verificando e baixando recursos NLTK necessários...
+2025-06-09 20:02:22,058 - __main__ - INFO - Baixando vader_lexicon para análise de sentimento...
+2025-06-09 20:02:22,058 - __main__ - INFO - Verificando modelo spaCy...
+2025-06-09 20:02:22,059 - __main__ - INFO - Modelo spaCy em português já está disponível
+2025-06-09 20:02:22,059 - __main__ - INFO - Inicialização de modelos NLP concluída
+2025-06-09 20:02:22,059 - __main__ - INFO - Iniciando bot...
+2025-06-09 20:02:22,059 - __main__ - INFO - Iniciando TelegramBot...
+2025-06-09 20:02:22,059 - __main__ - INFO - Iniciando configuração da API OpenAI...
+2025-06-09 20:02:22,059 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:02:22,060 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:02:22,068 - __main__ - INFO - Usando armazenamento local para dados dos usuários
+2025-06-09 20:02:22,068 - __main__ - INFO - Memória de usuários carregada: 1 usuários
+2025-06-09 20:02:22,078 - __main__ - INFO - Cliente OpenAI configurado com sucesso!
+2025-06-09 20:02:22,082 - __main__ - INFO - TelegramBot iniciado com sucesso!
+2025-06-09 20:02:22,082 - __main__ - INFO - Iniciando aplicação do bot...
+2025-06-09 20:02:22,082 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:02:22,083 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:02:22,090 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2025-06-09 20:02:22,090 - httpx - DEBUG - load_verify_locations cafile='C:\\Users\\Pc\\Desktop\\Agente\\venv\\Lib\\site-packages\\certifi\\cacert.pem'
+2025-06-09 20:02:22,099 - __main__ - INFO - Bot iniciado com sucesso! Iniciando polling...
+2025-06-09 20:02:22,099 - asyncio - DEBUG - Using proactor: IocpProactor
+2025-06-09 20:02:22,100 - telegram.ext.ExtBot - DEBUG - Entering: get_me
+2025-06-09 20:02:22,104 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:02:22,315 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6D3B02610>
+2025-06-09 20:02:22,316 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001B6D3C6F920> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:02:22,522 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6D2601F90>
+2025-06-09 20:02:22,522 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:22,522 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:22,523 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:22,523 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:22,523 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:22,740 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:25 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'251'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:22,741 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getMe "HTTP/1.1 200 OK"
+2025-06-09 20:02:22,741 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:22,741 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:22,742 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:22,742 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:22,742 - telegram.ext.ExtBot - DEBUG - User(api_kwargs={'can_connect_to_business': False, 'has_main_web_app': False}, can_join_groups=True, can_read_all_group_messages=False, first_name='Agente', id=7652663463, is_bot=True, supports_inline_queries=False, username='AgenteIA_01_bot')
+2025-06-09 20:02:22,743 - telegram.ext.ExtBot - DEBUG - Exiting: get_me
+2025-06-09 20:02:22,743 - telegram.ext.ExtBot - DEBUG - This Bot is already initialized.
+2025-06-09 20:02:22,743 - telegram.ext.Updater - DEBUG - Updater started (polling)
+2025-06-09 20:02:22,743 - telegram.ext.Updater - DEBUG - Start network loop retry bootstrap del webhook
+2025-06-09 20:02:22,743 - telegram.ext.Updater - DEBUG - Deleting webhook
+2025-06-09 20:02:22,743 - telegram.ext.ExtBot - DEBUG - Entering: delete_webhook
+2025-06-09 20:02:22,744 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:22,744 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:22,744 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:22,745 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:22,745 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:22,962 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:25 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'68'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:22,963 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-09 20:02:22,963 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:22,963 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:22,963 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:22,963 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:22,964 - telegram.ext.ExtBot - DEBUG - True
+2025-06-09 20:02:22,964 - telegram.ext.ExtBot - DEBUG - Exiting: delete_webhook
+2025-06-09 20:02:22,964 - telegram.ext.Updater - DEBUG - Bootstrap done
+2025-06-09 20:02:22,964 - telegram.ext.Updater - DEBUG - Waiting for polling to start
+2025-06-09 20:02:22,964 - telegram.ext.Updater - DEBUG - Polling updates from Telegram started
+2025-06-09 20:02:22,964 - telegram.ext.Updater - DEBUG - Start network loop retry getting Updates
+2025-06-09 20:02:22,965 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:02:22,965 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:02:22,965 - telegram.ext.Application - INFO - Application started
+2025-06-09 20:02:23,168 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6D2573F50>
+2025-06-09 20:02:23,169 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001B6D3C6F6E0> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:02:23,411 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6C7AB1650>
+2025-06-09 20:02:23,412 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:23,413 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:23,413 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:23,414 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:23,414 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:28,373 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:30 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:28,373 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:02:28,374 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:28,374 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:28,374 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:28,374 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:28,375 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:28,375 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:29,387 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:02:29,388 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:29,389 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:29,389 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:29,389 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:29,389 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:34,885 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:36 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:34,885 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:02:34,886 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:34,886 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:34,886 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:34,886 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:34,886 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:34,887 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:36,373 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:02:36,374 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:36,374 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:36,374 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:36,374 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:36,375 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:42,016 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:44 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:42,017 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:02:42,017 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:42,017 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:42,017 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:42,018 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:42,018 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:42,018 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:44,283 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:02:44,283 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:44,284 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:44,284 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:44,284 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:44,284 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:44,525 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:47 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'376'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:44,525 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 200 OK"
+2025-06-09 20:02:44,526 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:44,526 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:44,526 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:44,526 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:44,527 - telegram.ext.ExtBot - DEBUG - Getting updates: [292080499]
+2025-06-09 20:02:44,527 - telegram.ext.ExtBot - DEBUG - (Update(message=Message(channel_chat_created=False, chat=Chat(first_name='007🦴', id=1801197747, type=<ChatType.PRIVATE>, username='Exe_07'), date=datetime.datetime(2025, 6, 9, 23, 2, 46, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='007🦴', id=1801197747, is_bot=False, language_code='pt-br', username='Exe_07'), group_chat_created=False, message_id=391, supergroup_chat_created=False, text='/start'), update_id=292080499),)
+2025-06-09 20:02:44,528 - telegram.ext.ExtBot - DEBUG - Exiting: get_updates
+2025-06-09 20:02:44,528 - telegram.ext.ExtBot - DEBUG - Entering: get_updates
+2025-06-09 20:02:44,529 - telegram.ext.Application - DEBUG - Processing update Update(message=Message(channel_chat_created=False, chat=Chat(first_name='007🦴', id=1801197747, type=<ChatType.PRIVATE>, username='Exe_07'), date=datetime.datetime(2025, 6, 9, 23, 2, 46, tzinfo=datetime.timezone.utc), delete_chat_photo=False, entities=(MessageEntity(length=6, offset=0, type=<MessageEntityType.BOT_COMMAND>),), from_user=User(first_name='007🦴', id=1801197747, is_bot=False, language_code='pt-br', username='Exe_07'), group_chat_created=False, message_id=391, supergroup_chat_created=False, text='/start'), update_id=292080499)
+2025-06-09 20:02:44,530 - telegram.ext.ConversationHandler - DEBUG - Selecting conversation (1801197747, 1801197747) with state None
+2025-06-09 20:02:44,530 - __main__ - INFO - Novo usuário iniciou o bot: 1801197747
+2025-06-09 20:02:44,530 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:44,530 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:44,531 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:44,531 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:44,531 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:45,214 - telegram.ext.ExtBot - DEBUG - Entering: send_chat_action
+2025-06-09 20:02:45,215 - httpcore.connection - DEBUG - close.started
+2025-06-09 20:02:45,215 - httpcore.connection - DEBUG - close.complete
+2025-06-09 20:02:45,216 - httpcore.connection - DEBUG - connect_tcp.started host='api.telegram.org' port=443 local_address=None timeout=5.0 socket_options=None
+2025-06-09 20:02:45,441 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6D3B33D50>
+2025-06-09 20:02:45,442 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001B6D3C6F920> server_hostname='api.telegram.org' timeout=5.0
+2025-06-09 20:02:45,680 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.anyio.AnyIOStream object at 0x000001B6D24F1F90>
+2025-06-09 20:02:45,681 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:45,681 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-06-09 20:02:45,681 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-06-09 20:02:45,682 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-06-09 20:02:45,682 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-06-09 20:02:46,040 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:48 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'25'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Allow-Methods', b'GET, POST, OPTIONS'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:46,041 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/sendChatAction "HTTP/1.1 200 OK"
+2025-06-09 20:02:46,041 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:46,041 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:46,041 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:46,041 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:46,042 - telegram.ext.ExtBot - DEBUG - True
+2025-06-09 20:02:46,042 - telegram.ext.ExtBot - DEBUG - Exiting: send_chat_action
+2025-06-09 20:02:48,921 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 409, b'Conflict', [(b'Server', b'nginx/1.18.0'), (b'Date', b'Mon, 09 Jun 2025 23:02:51 GMT'), (b'Content-Type', b'application/json'), (b'Content-Length', b'143'), (b'Connection', b'keep-alive'), (b'Strict-Transport-Security', b'max-age=31536000; includeSubDomains; preload'), (b'Access-Control-Allow-Origin', b'*'), (b'Access-Control-Expose-Headers', b'Content-Length,Content-Type,Date,Server,Connection')])
+2025-06-09 20:02:48,922 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot7652663463:AAFhGRPVylvcf5JJbG85uDNgZp_TqMxoUk8/getUpdates "HTTP/1.1 409 Conflict"
+2025-06-09 20:02:48,922 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-06-09 20:02:48,922 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-06-09 20:02:48,923 - httpcore.http11 - DEBUG - response_closed.started
+2025-06-09 20:02:48,923 - httpcore.http11 - DEBUG - response_closed.complete
+2025-06-09 20:02:48,923 - telegram.ext.Updater - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2025-06-09 20:02:48,923 - telegram.ext.Application - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 688, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 384, in polling_action_cb
+    raise exc
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_updater.py", line 373, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 558, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Pc\Desktop\Agente\venv\Lib\site-packages\telegram\request\_baserequest.py", line 381, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running

@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 import pymongo
 from pymongo import MongoClient
 import spacy
+import socket
 
 # Configuração de logging mais detalhada com tratamento para caracteres Unicode
 class UnicodeStreamHandler(logging.StreamHandler):
@@ -2032,6 +2033,15 @@ class TelegramBot:
 
 if __name__ == "__main__":
     try:
+        # Verificar se o bot já está em execução
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        # Tenta vincular a uma porta específica
+        try:
+            s.bind(('localhost', 12345))
+        except socket.error:
+            logger.critical("Outra instância do bot já está em execução!")
+            sys.exit(1)
+            
         if not TOKEN:
             raise ValueError("Token do Telegram não encontrado no arquivo .env!")
         
