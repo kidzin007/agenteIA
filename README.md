@@ -1,5 +1,7 @@
 # Consultor Financeiro Bot
 
+#Procure no telegram pelo Bot: @AgenteIA_01_bot
+
 Bot de Telegram que atua como um consultor financeiro humano e realista, utilizando a API da OpenAI (GPT-4o) para gerar respostas naturais, concisas e diretas para perguntas sobre finanças e investimentos, com capacidade de pesquisar informações atualizadas na web.
 
 ## Funcionalidades
