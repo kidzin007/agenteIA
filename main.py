@@ -297,26 +297,48 @@ class OpenAIAdvisor:
             if context_data:
                 conversation_context += f"\nContexto adicional: {context_data}\n\n"
             
-            # Sistema de prompt para respostas extremamente concisas e naturais
-            system_prompt = f"""Você é Paulo, consultor financeiro. Responda como um humano real falando informalmente.
+            # Sistema de prompt para respostas adaptativas e detalhadas quando necessário
+            system_prompt = f"""Você é Paulo, consultor financeiro experiente e qualificado com mais de 15 anos no mercado. Responda como um especialista conversando informalmente.
 
             REGRAS CRÍTICAS:
-            1. EXTREMAMENTE CONCISO - use no máximo 1-3 frases curtas
-            2. Responda APENAS o que foi perguntado, sem informações extras
-            3. Use linguagem simples e direta, como em conversa casual
-            4. Nunca use asteriscos, marcadores ou formatação formal
-            5. Use expressões brasileiras como "olha", "então", "pois é"
-            6. Use contrações como "tá", "pra", "vamo" ocasionalmente
-            7. Evite explicações técnicas a menos que solicitado
-            8. Seja direto e objetivo, como um humano respondendo rapidamente
-            9. Não use saudações formais ou conclusões elaboradas
-            10. Não explique conceitos que não foram solicitados
+            1. ADAPTE A PROFUNDIDADE DA RESPOSTA:
+               - Para perguntas gerais ou simples: use 1-3 frases informativas
+               - Para perguntas específicas ou técnicas: forneça respostas detalhadas e completas (até 5-8 frases)
+               - Quando o usuário pedir detalhes ou explicações: seja abrangente e didático
+            
+            2. PERSONALIDADE: amigável, direto, com um toque de humor sutil
+            
+            3. ESTILO BRASILEIRO: use expressões como "olha", "na verdade", "veja bem"
+            
+            4. LINGUAGEM NATURAL: use "tá", "pra", "vamo" ocasionalmente em respostas curtas
+            
+            5. RESPOSTAS DETALHADAS QUANDO:
+               - O usuário pedir explicitamente mais informações
+               - A pergunta contiver termos como "explique", "detalhe", "como funciona"
+               - O tópico for complexo e exigir explicação para ser útil
+               - Envolver planejamento, estratégias ou conceitos técnicos
+            
+            6. ESTRUTURA PARA RESPOSTAS DETALHADAS:
+               - Comece com uma visão geral concisa
+               - Desenvolva com pontos-chave organizados (2-4 pontos)
+               - Inclua exemplos práticos ou números quando relevante
+               - Termine com uma conclusão acionável
+            
+            7. DADOS E PRECISÃO: use dados concretos, números e estatísticas relevantes
+            
+            8. DIDÁTICO: use analogias simples para explicar conceitos complexos
+            
+            9. ADAPTAÇÃO TÉCNICA: ajuste o nível técnico baseado na sofisticação da pergunta
+            
+            10. HONESTIDADE: admita quando não tiver informações suficientes
+            
+            LEMBRE-SE: você é um especialista real com experiência prática, não um chatbot. Responda com a autoridade de quem já ajudou centenas de pessoas com situações semelhantes.
             
             {conversation_context}
             
             {web_search_results}
             
-            Analise a pergunta e responda APENAS o necessário, de forma natural e extremamente concisa."""
+            Dada sua experiência, analise a pergunta e forneça uma resposta adaptada ao nível de detalhe necessário - seja concisa para perguntas simples ou detalhada para questões complexas ou específicas."""
             
             logger.debug("Enviando requisição para a API da OpenAI...")
             response = self.client.chat.completions.create(
@@ -326,7 +348,7 @@ class OpenAIAdvisor:
                     {"role": "user", "content": user_input}
                 ],
                 temperature=0.7,
-                max_tokens=300,
+                max_tokens=800,  # Aumentado para permitir respostas mais detalhadas
                 top_p=0.9
             )
             
@@ -355,22 +377,50 @@ class TelegramBot:
             self.advisor = OpenAIAdvisor()
             self.app = None
             
-            # Frases de espera humanizadas (mais curtas e naturais)
+            # Frases de espera profissionais e naturais
             self.typing_messages = [
-                "Pensando...",
-                "Um momento...",
-                "Analisando isso...",
-                "Só um instante...",
-                "Vendo aqui...",
+                "Analisando sua questão...",
+                "Consultando os dados...",
+                "Processando isso...",
+                "Um momento, por favor...",
+                "Elaborando uma resposta...",
+                "Verificando as informações...",
+                "Pensando na melhor estratégia...",
+                "Avaliando as opções...",
             ]
             
-            # Frases de follow-up (mais concisas)
+            # Frases de follow-up engajadoras
             self.follow_up_questions = [
-                "Ficou claro?",
-                "Mais alguma dúvida?",
-                "Isso ajudou?",
-                "Precisa de mais detalhes?",
-                "Posso ajudar com mais algo?"
+                "Essa perspectiva faz sentido para você?",
+                "Isso esclareceu sua dúvida?",
+                "Quer explorar mais algum aspecto desse tema?",
+                "Posso detalhar melhor algum ponto específico?",
+                "Esse caminho parece adequado para seu objetivo?",
+                "Consegui responder completamente sua pergunta?",
+                "Há algo mais que gostaria de saber sobre esse assunto?"
+            ]
+            
+            # Frases de espera mais profissionais e naturais
+            self.typing_messages = [
+                "Analisando sua questão...",
+                "Consultando os dados...",
+                "Processando isso...",
+                "Um momento, por favor...",
+                "Elaborando uma resposta...",
+                "Verificando as informações...",
+                "Pensando na melhor estratégia...",
+                "Avaliando as opções...",
+            ]
+            
+            # Frases de follow-up mais engajadoras
+            self.follow_up_questions = [
+                "Essa perspectiva faz sentido para você?",
+                "Isso esclareceu sua dúvida?",
+                "Quer explorar mais algum aspecto desse tema?",
+                "Posso detalhar melhor algum ponto específico?",
+                "Esse caminho parece adequado para seu objetivo?",
+                "Consegui responder completamente sua pergunta?",
+                "Há algo mais que gostaria de saber sobre esse assunto?"
             ]
             
             logger.info("TelegramBot iniciado com sucesso!")
@@ -390,10 +440,16 @@ class TelegramBot:
             keyboard = [
                 [
                     InlineKeyboardButton("📈 Investimentos", callback_data='investments'),
-                    InlineKeyboardButton("💰 Renda Fixa", callback_data='fixed_income')
+                    InlineKeyboardButton("💰 Renda Fixa", callback_data='fixed_income'),
+                    InlineKeyboardButton("📊 Renda Variável", callback_data='variable_income')
                 ],
                 [
-                    InlineKeyboardButton("📊 Análise de Mercado", callback_data='market_analysis'),
+                    InlineKeyboardButton("🏦 Fundos", callback_data='funds'),
+                    InlineKeyboardButton("💲 Cripto", callback_data='crypto'),
+                    InlineKeyboardButton("📝 Planejamento", callback_data='planning')
+                ],
+                [
+                    InlineKeyboardButton("📉 Análise de Mercado", callback_data='market_analysis'),
                     InlineKeyboardButton("📰 Notícias", callback_data='news')
                 ],
                 [
@@ -406,7 +462,9 @@ class TelegramBot:
             
             welcome_message = (
                 f"Olá, {user.first_name}! 👋\n\n"
-                "Sou Paulo, consultor financeiro. Como posso te ajudar hoje? Escolha uma opção ou me faça uma pergunta diretamente."
+                "Sou Paulo, consultor financeiro com mais de 15 anos de experiência no mercado. "
+                "Estou aqui para ajudar com suas dúvidas sobre investimentos, planejamento financeiro e economia.\n\n"
+                "Como posso auxiliar você hoje? Escolha uma opção abaixo ou me faça uma pergunta direta sobre qualquer tema financeiro."
             )
             
             await update.message.reply_text(welcome_message, reply_markup=reply_markup)
@@ -441,19 +499,45 @@ class TelegramBot:
             # Enviando mensagem de "digitando..."
             await update.message.chat.send_action(action="typing")
             
-            # Simulando tempo de digitação mais curto e natural
-            typing_time = random.uniform(1.0, 2.5)
+            # Simulando tempo de digitação adaptativo baseado na complexidade da pergunta
+            # Perguntas que pedem detalhes merecem mais "tempo de reflexão"
+            base_typing_time = 1.0
+            
+            # Aumenta o tempo de digitação para perguntas complexas ou que pedem detalhes
+            if wants_details or any(term in message.lower() for term in ["como", "porquê", "detalhe", "explique", "diferença"]):
+                typing_time = random.uniform(2.0, 3.5)  # Mais tempo para perguntas complexas
+            elif len(message.split()) > 15:  # Mensagem longa
+                typing_time = random.uniform(1.5, 3.0)  # Tempo médio para mensagens longas
+            else:
+                typing_time = random.uniform(1.0, 2.0)  # Tempo padrão para mensagens simples
+                
             await asyncio.sleep(typing_time)
             
             # Removendo a mensagem de "estou pensando" se existir
             if thinking_message:
                 await thinking_message.delete()
             
-            # Verificando se a mensagem parece ser uma pergunta sobre informações atualizadas
-            search_web = any(keyword in message.lower() for keyword in ["atual", "hoje", "recente", "notícia", "mercado", "taxa", "cotação", "preço", "inflação", "selic", "dólar", "euro", "bolsa"])
+            # Verificando se a mensagem parece ser uma pergunta sobre informações atualizadas ou detalhadas
+            search_keywords = ["atual", "hoje", "recente", "notícia", "mercado", "taxa", "cotação", "preço", 
+                             "inflação", "selic", "dólar", "euro", "bolsa", "tendência", "projeção", "previsão"]
             
-            # Gerando resposta
-            response = await self.advisor.generate_response(message, user.id, search_web=search_web)
+            # Palavras que indicam pedido de detalhamento
+            detail_keywords = ["detalhe", "explique", "explica", "como funciona", "passo a passo", 
+                              "aprofunde", "mais informações", "específico", "detalhadamente"]
+            
+            # Verificando se é uma solicitação de busca na web
+            search_web = any(keyword in message.lower() for keyword in search_keywords)
+            
+            # Detectando se é uma solicitação de resposta detalhada
+            wants_details = any(keyword in message.lower() for keyword in detail_keywords)
+            
+            # Ajustando o contexto se o usuário quiser detalhes
+            context_data = None
+            if wants_details:
+                context_data = "O usuário está solicitando uma explicação detalhada e abrangente. Forneça uma resposta completa com exemplos práticos quando possível."
+            
+            # Gerando resposta com detalhamento quando solicitado
+            response = await self.advisor.generate_response(message, user.id, context_data=context_data, search_web=search_web)
             
             # Dividindo respostas longas
             if len(response) > 4096:
@@ -467,12 +551,32 @@ class TelegramBot:
             else:
                 await update.message.reply_text(response, parse_mode='Markdown')
             
-            # Adicionando uma pergunta de acompanhamento ocasionalmente (apenas 20% das vezes)
-            if random.random() < 0.2:
-                await asyncio.sleep(0.8)
+            # Adicionando uma pergunta de acompanhamento ocasionalmente (apenas 30% das vezes)
+            # Maior probabilidade para respostas mais longas
+            message_length = len(response)
+            follow_up_probability = 0.3
+            
+            # Aumenta a probabilidade para respostas longas (mais detalhadas)
+            if message_length > 300:
+                follow_up_probability = 0.5  # 50% de chance para respostas detalhadas
+            
+            if random.random() < follow_up_probability:
+                await asyncio.sleep(1.2)  # Pausa maior após respostas detalhadas
                 await update.message.chat.send_action(action="typing")
-                await asyncio.sleep(0.5)
-                follow_up = random.choice(self.follow_up_questions)
+                await asyncio.sleep(0.7)
+                
+                # Seleciona follow-up específico para respostas mais detalhadas
+                if message_length > 300:
+                    detailed_followups = [
+                        "Gostaria que eu explorasse algum desses pontos em mais detalhes?",
+                        "Tem alguma parte específica que você quer que eu aprofunde?",
+                        "Isso atendeu ao nível de detalhe que você precisava?",
+                        "Quer que eu dê exemplos práticos de algum desses pontos?"
+                    ]
+                    follow_up = random.choice(detailed_followups)
+                else:
+                    follow_up = random.choice(self.follow_up_questions)
+                
                 await update.message.reply_text(follow_up)
             
             return WAITING_RESPONSE
@@ -506,17 +610,29 @@ class TelegramBot:
             await asyncio.sleep(typing_time)
 
             prompts = {
-                'investments': "Me fale sobre opções de investimento no Brasil hoje. O que recomenda para iniciantes?",
-                'fixed_income': "Quais são as opções de renda fixa no Brasil, rendimentos e riscos?",
-                'market_analysis': "Como está o mercado financeiro atualmente?",
-                'news': "Quais notícias econômicas importantes estão afetando investimentos?",
-                'help': "Como você pode me ajudar com finanças?"
+                'investments': "Quais são as principais opções de investimento no Brasil hoje, considerando diferentes perfis de risco e objetivos financeiros? O que você recomenda para quem está começando?",
+                'fixed_income': "Detalhe as melhores opções de renda fixa disponíveis no Brasil atualmente, com seus rendimentos aproximados, tributação, riscos e para qual perfil de investidor cada uma é mais adequada.",
+                'variable_income': "Quais são as melhores estratégias para investir em renda variável no Brasil atualmente? Fale sobre ações, FIIs, ETFs e BDRs, com dicas práticas para diferentes perfis de investidor.",
+                'funds': "Explique os principais tipos de fundos de investimento disponíveis no Brasil, suas características, vantagens e desvantagens. Como escolher o fundo mais adequado para cada objetivo?",
+                'crypto': "Qual a melhor forma de investir em criptomoedas com segurança no Brasil? Quais são as principais criptomoedas, exchanges confiáveis e estratégias recomendadas para diferentes perfis?",
+                'planning': "Como elaborar um planejamento financeiro completo e eficiente? Quais são as etapas essenciais, desde o orçamento pessoal até a aposentadoria?",
+                'market_analysis': "Como está o cenário macroeconômico e o mercado financeiro brasileiro atualmente? Quais são as perspectivas para os próximos meses e como isso afeta as decisões de investimento?",
+                'news': "Quais são as principais notícias econômicas e financeiras recentes que podem impactar os investimentos no Brasil? Como os investidores devem se posicionar diante desses acontecimentos?",
+                'help': "De que maneiras você pode me ajudar com planejamento financeiro, investimentos e educação financeira? Quais são seus diferenciais como consultor?"
             }
 
             if query.data in prompts:
                 # Para análise de mercado e notícias, sempre pesquisar na web
                 search_web = query.data in ['market_analysis', 'news']
-                response = await self.advisor.generate_response(prompts[query.data], user.id, search_web=search_web)
+                
+                # Para tópicos específicos, solicitar respostas mais detalhadas
+                detailed_topics = ['variable_income', 'funds', 'crypto', 'planning']
+                context_data = None
+                
+                if query.data in detailed_topics:
+                    context_data = "Este é um tópico complexo que exige uma explicação detalhada. Forneça uma resposta abrangente com pontos específicos e exemplos práticos."
+                
+                response = await self.advisor.generate_response(prompts[query.data], user.id, context_data=context_data, search_web=search_web)
                 await query.message.reply_text(response, parse_mode='Markdown')
             else:
                 logger.warning(f"Callback não reconhecido: {query.data}")

@@ -1,22 +1,78 @@
 {
     "menu_investimentos": {
         "title": "📈 Guia de Investimentos",
-        "content": "Aqui está um guia completo sobre os diferentes tipos de investimentos disponíveis...",
+        "content": "Aqui estão os principais tipos de investimentos no Brasil, organizados por perfil de risco e potencial de retorno. Cada um tem características próprias que podem se adaptar às suas necessidades financeiras e objetivos de vida.",
         "options": [
             "Renda Fixa",
             "Renda Variável",
-            "Fundos",
-            "Criptomoedas"
+            "Fundos de Investimento",
+            "Criptomoedas",
+            "Investimentos Alternativos"
         ]
     },
     "menu_renda_fixa": {
         "title": "💰 Renda Fixa",
-        "content": "Conheça as principais opções de renda fixa...",
+        "content": "A renda fixa é ideal para quem busca segurança e previsibilidade. Estas opções têm risco menor e são excelentes para reserva de emergência ou objetivos de curto e médio prazo.",
         "options": [
-            "CDB",
+            "CDB e LC",
             "Tesouro Direto",
             "LCI/LCA",
-            "Debêntures"
+            "Debêntures",
+            "Fundos DI"
+        ]
+    },
+    "menu_renda_variavel": {
+        "title": "📊 Renda Variável",
+        "content": "Investimentos de renda variável oferecem maior potencial de retorno, mas com risco mais elevado. São ideais para objetivos de longo prazo e diversificação da carteira.",
+        "options": [
+            "Ações",
+            "FIIs (Fundos Imobiliários)",
+            "ETFs",
+            "BDRs (Ações Internacionais)"
+        ]
+    },
+    "menu_fundos": {
+        "title": "🏦 Fundos de Investimento",
+        "content": "Os fundos permitem acesso a diversos ativos com gestão profissional. São uma excelente forma de diversificar investimentos mesmo com pouco capital.",
+        "options": [
+            "Fundos de Ações",
+            "Fundos Multimercado",
+            "Fundos Imobiliários",
+            "Fundos de Renda Fixa",
+            "Fundos Cambiais"
+        ]
+    },
+    "menu_cripto": {
+        "title": "🪙 Criptomoedas",
+        "content": "Ativos digitais de alta volatilidade que representam uma classe alternativa de investimentos. Recomendo alocar no máximo 5% do seu patrimônio neste segmento.",
+        "options": [
+            "Bitcoin e Ethereum",
+            "Altcoins",
+            "Fundos de Cripto",
+            "ETFs de Cripto",
+            "Riscos e Cuidados"
+        ]
+    },
+    "planejamento_financeiro": {
+        "title": "📝 Planejamento Financeiro",
+        "content": "Um bom planejamento financeiro é a base para alcançar seus objetivos. Vamos estruturar suas finanças de forma eficiente?",
+        "options": [
+            "Orçamento Pessoal",
+            "Reserva de Emergência",
+            "Planos de Aposentadoria",
+            "Redução de Dívidas",
+            "Educação Financeira"
+        ]
+    },
+    "analise_mercado": {
+        "title": "📊 Análise de Mercado",
+        "content": "Acompanhe as tendências e movimentos do mercado financeiro para tomar decisões mais informadas sobre seus investimentos.",
+        "options": [
+            "Cenário Econômico",
+            "Indicadores-Chave",
+            "Tendências de Mercado",
+            "Oportunidades Atuais",
+            "Análise de Riscos"
         ]
     }
 } 
