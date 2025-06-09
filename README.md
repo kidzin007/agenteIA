@@ -1,7 +1,5 @@
 # Consultor Financeiro Bot
 
-#Para testar procure no telegram pelo Bot: @AgenteIA_01_bot
-
 Bot de Telegram que atua como um consultor financeiro humano e realista, utilizando a API da OpenAI (GPT-4o) para gerar respostas naturais, concisas e diretas para perguntas sobre finanças e investimentos, com capacidade de pesquisar informações atualizadas na web.
 
 ## Funcionalidades
@@ -11,6 +9,7 @@ Bot de Telegram que atua como um consultor financeiro humano e realista, utiliza
 - Pesquisa informações atualizadas na web para fornecer dados recentes
 - Interface amigável com botões para tópicos comuns
 - Memória de conversas para manter contexto entre interações
+- Suporte a armazenamento de dados em MongoDB para maior escalabilidade
 
 ## Características Humanizadas
 
@@ -28,6 +27,7 @@ Bot de Telegram que atua como um consultor financeiro humano e realista, utiliza
 - Biblioteca python-telegram-bot
 - API Key da OpenAI
 - Acesso à internet para pesquisas web
+- MongoDB (opcional, para armazenamento escalável)
 
 ## Instalação
 
@@ -44,6 +44,8 @@ cp .env.example .env
 ```
 TELEGRAM_TOKEN=seu_token_do_telegram_aqui
 OPENAI_API_KEY=sua_chave_api_da_openai_aqui
+# Opcional: adicione a URI do MongoDB para armazenamento escalável
+MONGODB_URI=sua_string_de_conexao_mongodb
 ```
 
 ## Uso
@@ -69,6 +71,26 @@ O bot pode pesquisar informações atualizadas na internet para responder pergun
 - Tendências econômicas
 - Outros dados financeiros atualizados
 
+## Armazenamento de Dados
+
+O bot suporta dois métodos de armazenamento de dados:
+
+### Armazenamento Local (Padrão)
+- Usa arquivo JSON local para armazenar dados dos usuários
+- Adequado para testes e uso com poucos usuários
+- Não requer configuração adicional
+
+### MongoDB (Recomendado para Produção)
+- Armazenamento escalável em banco de dados MongoDB
+- Suporta grande número de usuários simultaneamente
+- Persistência de dados confiável
+- Requer configuração da variável de ambiente `MONGODB_URI`
+- Para mais detalhes, consulte [MONGODB_INTEGRATION.md](MONGODB_INTEGRATION.md)
+
 ## Logs
 
-Os logs detalhados são salvos em `bot_debug.log` para facilitar a depuração. 
+Os logs detalhados são salvos em `bot_debug.log` para facilitar a depuração.
+
+## Implantação
+
+Para informações sobre como implantar o bot em servidores de produção, consulte [DEPLOY.md](DEPLOY.md). 

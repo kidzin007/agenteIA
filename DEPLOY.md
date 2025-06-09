@@ -102,12 +102,22 @@ Para usuários avançados que desejam controle total.
 
 ## Usando MongoDB para Armazenamento
 
-Para usar MongoDB em vez do arquivo JSON para memória do usuário:
+O bot agora suporta nativamente o MongoDB para armazenamento de dados dos usuários, oferecendo maior escalabilidade e confiabilidade. Para configurar:
 
 1. Crie uma conta no [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) (plano gratuito disponível)
 2. Configure um cluster e obtenha a string de conexão
 3. Adicione a string de conexão como variável de ambiente `MONGODB_URI`
 4. O bot detectará automaticamente e usará o MongoDB se a variável estiver configurada
+
+### Vantagens do MongoDB para Produção
+
+- **Alta Disponibilidade**: Dados sempre acessíveis, mesmo com grande volume de usuários
+- **Escalabilidade**: Suporta crescimento do número de usuários sem degradação de desempenho
+- **Segurança**: Backups automáticos e proteção de dados
+- **Análise de Dados**: Possibilidade de realizar consultas complexas e análises sobre o comportamento dos usuários
+- **Monitoramento**: Ferramentas integradas para monitorar o desempenho e uso do banco de dados
+
+Para mais detalhes sobre a integração com MongoDB, consulte o arquivo [MONGODB_INTEGRATION.md](MONGODB_INTEGRATION.md).
 
 ## Solução de Problemas
 

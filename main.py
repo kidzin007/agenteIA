@@ -15,6 +15,8 @@ from googlesearch import search
 from bs4 import BeautifulSoup
 import json
 from datetime import datetime
+import pymongo
+from pymongo import MongoClient
 
 # Configuração de logging mais detalhada com tratamento para caracteres Unicode
 class UnicodeStreamHandler(logging.StreamHandler):
@@ -248,6 +250,151 @@ class UserMemory:
         
         return summary
 
+class MongoDBStorage:
+    """Classe para gerenciar o armazenamento de dados no MongoDB."""
+    
+    def __init__(self):
+        """Inicializa a conexão com o MongoDB."""
+        self.client = None
+        self.db = None
+        self.users_collection = None
+        self.mongodb_uri = os.getenv('MONGODB_URI')
+        
+        if self.mongodb_uri:
+            try:
+                logger.info("Conectando ao MongoDB...")
+                self.client = MongoClient(self.mongodb_uri)
+                self.db = self.client.finance_bot
+                self.users_collection = self.db.users
+                # Criando índice para melhorar a performance das consultas
+                self.users_collection.create_index("user_id")
+                logger.info("Conexão com MongoDB estabelecida com sucesso!")
+            except Exception as e:
+                logger.error(f"Erro ao conectar ao MongoDB: {str(e)}")
+                logger.error(f"Traceback: {traceback.format_exc()}")
+                self.client = None
+        else:
+            logger.info("URI do MongoDB não configurada. Usando armazenamento local.")
+    
+    def is_connected(self):
+        """Verifica se a conexão com o MongoDB está ativa."""
+        return self.client is not None
+    
+    def get_user_info(self, user_id):
+        """Obtém informações sobre um usuário específico."""
+        user_id_str = str(user_id)
+        
+        if not self.is_connected():
+            logger.warning("MongoDB não está conectado. Não foi possível obter informações do usuário.")
+            return None
+        
+        user_doc = self.users_collection.find_one({"user_id": user_id_str})
+        
+        if not user_doc:
+            # Criando um novo documento para o usuário
+            user_doc = {
+                "user_id": user_id_str,
+                "first_interaction": datetime.now(),
+                "last_interaction": datetime.now(),
+                "interaction_count": 0,
+                "topics": [],
+                "preferences": {},
+                "conversation_history": []
+            }
+            self.users_collection.insert_one(user_doc)
+            logger.info(f"Novo usuário criado no MongoDB: {user_id_str}")
+        
+        return user_doc
+    
+    def update_user_interaction(self, user_id, user_message, bot_response):
+        """Atualiza as informações de interação de um usuário."""
+        if not self.is_connected():
+            logger.warning("MongoDB não está conectado. Não foi possível atualizar interação do usuário.")
+            return
+        
+        user_id_str = str(user_id)
+        
+        # Obtendo o documento do usuário
+        user_doc = self.get_user_info(user_id)
+        
+        # Atualizando dados básicos
+        update_data = {
+            "last_interaction": datetime.now(),
+            "interaction_count": user_doc["interaction_count"] + 1
+        }
+        
+        # Criando nova interação
+        new_interaction = {
+            "timestamp": datetime.now(),
+            "user_message": user_message,
+            "bot_response": bot_response
+        }
+        
+        # Identificando tópicos com base em palavras-chave
+        topics_keywords = {
+            "investimentos": ["investir", "investimento", "ação", "ações", "bolsa"],
+            "renda_fixa": ["renda fixa", "cdb", "tesouro", "lci", "lca"],
+            "aposentadoria": ["aposentadoria", "previdência", "inss", "aposentar"],
+            "dívidas": ["dívida", "dívidas", "empréstimo", "crédito", "financiamento"],
+            "economia": ["economia", "poupar", "economizar", "gastos"],
+            "educação_financeira": ["educação financeira", "aprender", "finanças"],
+            "impostos": ["imposto", "impostos", "ir", "declaração"],
+            "imóveis": ["imóvel", "imóveis", "casa", "apartamento", "financiamento"]
+        }
+        
+        new_topics = []
+        for topic, keywords in topics_keywords.items():
+            for keyword in keywords:
+                if keyword.lower() in user_message.lower() and topic not in user_doc["topics"]:
+                    new_topics.append(topic)
+        
+        # Atualizando o documento do usuário no MongoDB
+        self.users_collection.update_one(
+            {"user_id": user_id_str},
+            {
+                "$set": update_data,
+                "$push": {
+                    "conversation_history": {
+                        "$each": [new_interaction],
+                        "$slice": -10  # Mantém apenas as 10 últimas interações
+                    },
+                    "topics": {
+                        "$each": new_topics
+                    }
+                }
+            }
+        )
+        
+        logger.debug(f"Interação do usuário {user_id_str} atualizada no MongoDB")
+    
+    def get_conversation_summary(self, user_id):
+        """Obtém um resumo das conversas recentes com o usuário."""
+        if not self.is_connected():
+            logger.warning("MongoDB não está conectado. Não foi possível obter resumo da conversa.")
+            return "Não foi possível acessar o histórico de conversas."
+        
+        user_id_str = str(user_id)
+        user_doc = self.get_user_info(user_id)
+        
+        if not user_doc or not user_doc.get("conversation_history"):
+            return "Não há histórico de conversas anteriores."
+        
+        summary = "Resumo das conversas recentes:\n\n"
+        
+        # Pegando as 3 últimas interações
+        recent_interactions = user_doc["conversation_history"][-3:]
+        
+        for i, interaction in enumerate(recent_interactions, 1):
+            timestamp = interaction["timestamp"].strftime("%d/%m/%Y %H:%M") if isinstance(interaction["timestamp"], datetime) else "Data desconhecida"
+            summary += f"Interação {i} ({timestamp}):\n"
+            summary += f"Usuário: {interaction['user_message']}\n"
+            summary += f"Bot: {interaction['bot_response'][:100]}...\n\n"
+        
+        summary += f"Tópicos de interesse: {', '.join(user_doc['topics']) if user_doc['topics'] else 'Nenhum identificado ainda'}\n"
+        summary += f"Total de interações: {user_doc['interaction_count']}"
+        
+        return summary
+
 class OpenAIAdvisor:
     def __init__(self):
         logger.info("Iniciando configuração da API OpenAI...")
@@ -256,7 +403,20 @@ class OpenAIAdvisor:
                 raise ValueError("OPENAI_API_KEY não encontrada nas variáveis de ambiente!")
             
             self.client = OpenAI(api_key=OPENAI_API_KEY)
-            self.user_memory = UserMemory()
+            
+            # Verificando se devemos usar MongoDB ou armazenamento local
+            mongodb_uri = os.getenv('MONGODB_URI')
+            if mongodb_uri:
+                logger.info("Usando MongoDB para armazenamento de dados")
+                self.storage = MongoDBStorage()
+                # Verificando se a conexão foi bem-sucedida
+                if not self.storage.is_connected():
+                    logger.warning("Falha na conexão com MongoDB. Usando armazenamento local como fallback.")
+                    self.storage = UserMemory()
+            else:
+                logger.info("Usando armazenamento local para dados dos usuários")
+                self.storage = UserMemory()
+                
             logger.info("Cliente OpenAI configurado com sucesso!")
         except Exception as e:
             logger.error(f"Erro ao configurar cliente OpenAI: {str(e)}")
@@ -272,7 +432,7 @@ class OpenAIAdvisor:
             logger.debug(f"Gerando resposta com OpenAI para input: {user_input}")
             
             # Obtendo informações do usuário
-            user_info = self.user_memory.get_user_info(user_id)
+            user_info = self.storage.get_user_info(user_id)
             
             # Realizando pesquisa na web se necessário
             web_search_results = ""
@@ -285,13 +445,25 @@ class OpenAIAdvisor:
             
             # Construindo o contexto da conversa (apenas última interação para ser mais conciso)
             conversation_context = ""
-            if user_info["interaction_count"] > 0:
-                last_interactions = user_info["conversation_history"][-1:] if len(user_info["conversation_history"]) > 0 else []
-                if last_interactions:
-                    conversation_context = "Última conversa:\n"
-                    for interaction in last_interactions:
-                        conversation_context += f"Usuário: {interaction['user_message']}\n"
-                        conversation_context += f"Você: {interaction['bot_response'][:50]}...\n\n"
+            if user_info:
+                if isinstance(self.storage, MongoDBStorage):
+                    # Para MongoDB
+                    if user_info.get("interaction_count", 0) > 0 and user_info.get("conversation_history"):
+                        last_interactions = user_info["conversation_history"][-1:]
+                        if last_interactions:
+                            conversation_context = "Última conversa:\n"
+                            for interaction in last_interactions:
+                                conversation_context += f"Usuário: {interaction['user_message']}\n"
+                                conversation_context += f"Você: {interaction['bot_response'][:50]}...\n\n"
+                else:
+                    # Para UserMemory
+                    if user_info["interaction_count"] > 0:
+                        last_interactions = user_info["conversation_history"][-1:] if len(user_info["conversation_history"]) > 0 else []
+                        if last_interactions:
+                            conversation_context = "Última conversa:\n"
+                            for interaction in last_interactions:
+                                conversation_context += f"Usuário: {interaction['user_message']}\n"
+                                conversation_context += f"Você: {interaction['bot_response'][:50]}...\n\n"
             
             # Adicionando dados de contexto específicos se fornecidos
             if context_data:
@@ -361,7 +533,7 @@ class OpenAIAdvisor:
             formatted_response = formatted_response.replace('`', '\\`')
             
             # Atualizando a memória do usuário
-            self.user_memory.update_user_interaction(user_id, user_input, formatted_response)
+            self.storage.update_user_interaction(user_id, user_input, formatted_response)
             
             return formatted_response
 
@@ -499,12 +671,19 @@ class TelegramBot:
             # Enviando mensagem de "digitando..."
             await update.message.chat.send_action(action="typing")
             
+            # Palavras que indicam pedido de detalhamento
+            detail_keywords = ["detalhe", "explique", "explica", "como funciona", "passo a passo", 
+                              "aprofunde", "mais informações", "específico", "detalhadamente"]
+            
+            # Detectando se é uma solicitação de resposta detalhada
+            wants_details = any(keyword in message.lower() for keyword in detail_keywords)
+            
             # Simulando tempo de digitação adaptativo baseado na complexidade da pergunta
             # Perguntas que pedem detalhes merecem mais "tempo de reflexão"
             base_typing_time = 1.0
             
             # Aumenta o tempo de digitação para perguntas complexas ou que pedem detalhes
-            if wants_details or any(term in message.lower() for term in ["como", "porquê", "detalhe", "explique", "diferença"]):
+            if wants_details or any(term in message.lower() for term in ["como", "porquê", "diferença"]):
                 typing_time = random.uniform(2.0, 3.5)  # Mais tempo para perguntas complexas
             elif len(message.split()) > 15:  # Mensagem longa
                 typing_time = random.uniform(1.5, 3.0)  # Tempo médio para mensagens longas
@@ -521,15 +700,8 @@ class TelegramBot:
             search_keywords = ["atual", "hoje", "recente", "notícia", "mercado", "taxa", "cotação", "preço", 
                              "inflação", "selic", "dólar", "euro", "bolsa", "tendência", "projeção", "previsão"]
             
-            # Palavras que indicam pedido de detalhamento
-            detail_keywords = ["detalhe", "explique", "explica", "como funciona", "passo a passo", 
-                              "aprofunde", "mais informações", "específico", "detalhadamente"]
-            
             # Verificando se é uma solicitação de busca na web
             search_web = any(keyword in message.lower() for keyword in search_keywords)
-            
-            # Detectando se é uma solicitação de resposta detalhada
-            wants_details = any(keyword in message.lower() for keyword in detail_keywords)
             
             # Ajustando o contexto se o usuário quiser detalhes
             context_data = None
