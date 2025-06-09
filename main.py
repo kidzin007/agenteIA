@@ -22,6 +22,7 @@ import pymongo
 from pymongo import MongoClient
 import spacy
 import socket
+import telegram
 
 # Configuração de logging mais detalhada com tratamento para caracteres Unicode
 class UnicodeStreamHandler(logging.StreamHandler):
@@ -2000,6 +2001,11 @@ class TelegramBot:
             logger.info("Iniciando aplicação do bot...")
             self.app = Application.builder().token(TOKEN).build()
             
+            # Resetando webhook para evitar conflitos
+            logger.info("Removendo webhooks anteriores...")
+            import requests
+            requests.get(f"https://api.telegram.org/bot{TOKEN}/deleteWebhook?drop_pending_updates=true")
+            
             # Importando asyncio aqui para evitar problemas de importação circular
             import asyncio
             global asyncio
@@ -2023,13 +2029,31 @@ class TelegramBot:
             # Adicionando handlers
             self.app.add_handler(conv_handler)
             
+            # Adicionando um handler para tratar erros
+            self.app.add_error_handler(self.error_handler)
+            
             logger.info("Bot iniciado com sucesso! Iniciando polling...")
-            self.app.run_polling(allowed_updates=Update.ALL_TYPES)
+            self.app.run_polling(drop_pending_updates=True, allowed_updates=Update.ALL_TYPES)
             
         except Exception as e:
             logger.error(f"Erro fatal ao iniciar o bot: {str(e)}")
             logger.error(f"Traceback: {traceback.format_exc()}")
             raise
+    
+    # Adicionando um handler de erro
+    async def error_handler(self, update, context):
+        """Trata erros ocorridos durante o processamento de updates."""
+        logger.error(f"Update {update} causou erro {context.error}")
+        
+        if isinstance(context.error, telegram.error.Conflict):
+            logger.error("Conflito detectado: Outra instância do bot está rodando")
+            # Aqui podemos implementar uma lógica para tentar resolver o conflito
+            
+        # Tentando informar o usuário sobre o erro
+        if update and update.effective_message:
+            await update.effective_message.reply_text(
+                "Ops! Ocorreu um erro no processamento da sua solicitação. Tente novamente em alguns instantes."
+            )
 
 if __name__ == "__main__":
     try:
