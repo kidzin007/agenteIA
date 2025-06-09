@@ -493,66 +493,60 @@ class GoogleSearch:
             logger.info(f"Realizando pesquisa no Google para: {query}")
             search_results = []
             
-            # Adicionando tratamento de erros mais robusto
-            try:
-                # Realizando a pesquisa
-                search_urls = list(search(query, num_results=num_results, lang="pt", country="br", stop=num_results))
-                
-                if not search_urls:
-                    logger.warning("Nenhum resultado encontrado na pesquisa.")
-                    return []
-                
-                for url in search_urls:
-                    try:
-                        # Ignorando URLs problemáticas comuns
-                        if any(blocked in url.lower() for blocked in ["youtube.com", "facebook.com", "instagram.com", "twitter.com", "tiktok.com"]):
-                            continue
-                            
-                        # Obtendo o conteúdo da página com timeout
-                        headers = {
-                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-                        }
-                        response = requests.get(url, headers=headers, timeout=5)
-                        
-                        if response.status_code == 200:
-                            # Parseando o HTML
-                            soup = BeautifulSoup(response.text, 'html.parser')
-                            
-                            # Obtendo o título
-                            title = soup.title.string if soup.title else "Sem título"
-                            
-                            # Obtendo um resumo do conteúdo (primeiros parágrafos)
-                            paragraphs = soup.find_all('p')
-                            content = ""
-                            for p in paragraphs[:5]:  # Pegando os 5 primeiros parágrafos
-                                if p.text and len(p.text.strip()) > 20:  # Evitando parágrafos vazios ou muito curtos
-                                    content += p.text.strip() + " "
-                            
-                            if content:
-                                # Limpando o conteúdo (removendo caracteres especiais e formatação)
-                                content = re.sub(r'\s+', ' ', content)  # Substituindo múltiplos espaços por um único
-                                content = re.sub(r'[^\w\s.,;:!?()-]', '', content)  # Removendo caracteres especiais
-                                
-                                # Limitando o tamanho do conteúdo
-                                content = content[:500] + "..." if len(content) > 500 else content
-                                
-                                # Adicionando aos resultados
-                                search_results.append({
-                                    "title": title,
-                                    "url": url,
-                                    "content": content
-                                })
-                        
-                    except requests.exceptions.RequestException as e:
-                        logger.warning(f"Erro ao acessar URL {url}: {str(e)}")
-                        continue
-                    except Exception as e:
-                        logger.warning(f"Erro ao processar URL {url}: {str(e)}")
-                        continue
-                
-            except Exception as e:
-                logger.error(f"Erro durante a pesquisa: {str(e)}")
+            # Realizando a pesquisa
+            search_urls = list(search(query, num_results=num_results, lang="pt", country="br", stop=num_results))
+            
+            if not search_urls:
+                logger.warning("Nenhum resultado encontrado na pesquisa.")
                 return []
+            
+            for url in search_urls:
+                try:
+                    # Ignorando URLs problemáticas comuns
+                    if any(blocked in url.lower() for blocked in ["youtube.com", "facebook.com", "instagram.com", "twitter.com", "tiktok.com"]):
+                        continue
+                        
+                    # Obtendo o conteúdo da página com timeout
+                    headers = {
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+                    }
+                    response = requests.get(url, headers=headers, timeout=5)
+                    
+                    if response.status_code == 200:
+                        # Parseando o HTML
+                        soup = BeautifulSoup(response.text, 'html.parser')
+                        
+                        # Obtendo o título
+                        title = soup.title.string if soup.title else "Sem título"
+                        
+                        # Obtendo um resumo do conteúdo (primeiros parágrafos)
+                        paragraphs = soup.find_all('p')
+                        content = ""
+                        for p in paragraphs[:5]:  # Pegando os 5 primeiros parágrafos
+                            if p.text and len(p.text.strip()) > 20:  # Evitando parágrafos vazios ou muito curtos
+                                content += p.text.strip() + " "
+                        
+                        if content:
+                            # Limpando o conteúdo (removendo caracteres especiais e formatação)
+                            content = re.sub(r'\s+', ' ', content)  # Substituindo múltiplos espaços por um único
+                            content = re.sub(r'[^\w\s.,;:!?()-]', '', content)  # Removendo caracteres especiais
+                            
+                            # Limitando o tamanho do conteúdo
+                            content = content[:500] + "..." if len(content) > 500 else content
+                            
+                            # Adicionando aos resultados
+                            search_results.append({
+                                "title": title,
+                                "url": url,
+                                "content": content
+                            })
+                    
+                except requests.exceptions.RequestException as e:
+                    logger.warning(f"Erro ao acessar URL {url}: {str(e)}")
+                    continue
+                except Exception as e:
+                    logger.warning(f"Erro ao processar URL {url}: {str(e)}")
+                    continue
             
             logger.info(f"Pesquisa concluída. Encontrados {len(search_results)} resultados.")
             return search_results
@@ -1230,7 +1224,7 @@ class OpenAIAdvisor:
                             for interaction in last_interactions:
                                 conversation_context += f"Usuário: {interaction['user_message']}\n"
                                 conversation_context += f"Você: {interaction['bot_response'][:100]}...\n\n"
-                else:
+            else:
                     # Para UserMemory
                     if user_info.get("interaction_count", 0) > 0 and user_info.get("conversation_history"):
                         last_interactions = user_info["conversation_history"][-2:] if intent_changed else user_info["conversation_history"][-3:]
@@ -1322,7 +1316,7 @@ class OpenAIAdvisor:
                         insert_pos = random.randint(1, len(sentences) - 2)
                         sentences[insert_pos] = f"{sentences[insert_pos][:-1]}, {regional_expr}"
                         humanized_response = '. '.join(sentences)
-            
+
             # Formatando para Markdown
             formatted_response = humanized_response.replace('*', '\\*')
             formatted_response = formatted_response.replace('_', '\\_')
@@ -1564,10 +1558,6 @@ class TelegramBot:
                     "Estou aqui para ajudar com suas dúvidas sobre investimentos, planejamento financeiro e economia.\n\n"
                     "Como posso auxiliar você hoje? Escolha uma opção abaixo ou me faça uma pergunta direta sobre qualquer tema financeiro."
                 )
-            
-            await update.message.reply_text(welcome_message, reply_markup=reply_markup)
-            
-            # Adicionando uma segunda mensagem ocasionalmente para novos usuários
             if not is_returning_user and random.random() < 0.7:
                 await update.message.chat.send_action(action="typing")
                 await asyncio.sleep(random.uniform(1.2, 2.0))
@@ -1642,7 +1632,7 @@ class TelegramBot:
                 )
                 thinking_text = random.choice(thinking_messages) if thinking_messages else random.choice(self.typing_messages)
                 thinking_message = await update.message.reply_text(thinking_text)
-            
+
             # Enviando mensagem de "digitando..."
             await update.message.chat.send_action(action="typing")
             
@@ -1718,7 +1708,7 @@ class TelegramBot:
                         await update.message.chat.send_action(action="typing")
                         await asyncio.sleep(random.uniform(0.8, 1.5))
             else:
-                await update.message.reply_text(response, parse_mode='Markdown')
+                    await update.message.reply_text(response, parse_mode='Markdown')
             
             # Adicionando follow-up ocasionalmente com probabilidade adaptativa
             message_length = len(response)

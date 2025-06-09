@@ -1,7 +1,5 @@
 # Bot Financeiro com OpenAI GPT-4o
 
-#Para usar procure no telegram por: @AgenteIA_01_bot
-
 Um bot de Telegram especializado em consultoria financeira, desenvolvido com a API da OpenAI (GPT-4o) para fornecer respostas precisas, personalizadas e humanizadas sobre investimentos, planejamento financeiro e educação financeira.
 
 ## Características
