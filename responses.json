@@ -1,0 +1,22 @@
+{
+    "menu_investimentos": {
+        "title": "📈 Guia de Investimentos",
+        "content": "Aqui está um guia completo sobre os diferentes tipos de investimentos disponíveis...",
+        "options": [
+            "Renda Fixa",
+            "Renda Variável",
+            "Fundos",
+            "Criptomoedas"
+        ]
+    },
+    "menu_renda_fixa": {
+        "title": "💰 Renda Fixa",
+        "content": "Conheça as principais opções de renda fixa...",
+        "options": [
+            "CDB",
+            "Tesouro Direto",
+            "LCI/LCA",
+            "Debêntures"
+        ]
+    }
+} 
