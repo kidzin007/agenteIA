@@ -1,98 +1,105 @@
-# Consultor Financeiro Bot
+# Bot Financeiro com OpenAI GPT-4o
 
-#Para testar procure no telegram pelo Bot: @AgenteIA_01_bot
+Um bot de Telegram especializado em consultoria financeira, desenvolvido com a API da OpenAI (GPT-4o) para fornecer respostas precisas, personalizadas e humanizadas sobre investimentos, planejamento financeiro e educação financeira.
 
-Bot de Telegram que atua como um consultor financeiro humano e realista, utilizando a API da OpenAI (GPT-4o) para gerar respostas naturais, concisas e diretas para perguntas sobre finanças e investimentos, com capacidade de pesquisar informações atualizadas na web.
+## Características
 
-## Funcionalidades
-
-- Responde perguntas sobre investimentos, renda fixa, análise de mercado e notícias financeiras
-- Fornece respostas extremamente concisas e naturais, semelhantes a um humano real
-- Pesquisa informações atualizadas na web para fornecer dados recentes
-- Interface amigável com botões para tópicos comuns
-- Memória de conversas para manter contexto entre interações
-- Suporte a armazenamento de dados em MongoDB para maior escalabilidade
-
-## Características Humanizadas
-
-- Respostas curtas e diretas (1-3 frases)
-- Linguagem casual e conversacional
-- Uso de expressões brasileiras e contrações
-- Tempos de resposta naturais e variáveis
-- Mensagens intermediárias ocasionais
-- Perguntas de acompanhamento ocasionais
-- Foco apenas no que foi perguntado, sem informações desnecessárias
+- 🤖 Integração com OpenAI GPT-4o para respostas inteligentes e detalhadas
+- 💬 Interface amigável via Telegram com menu interativo
+- 🧠 Sistema avançado de memória para lembrar interações anteriores com usuários
+- 🔍 Capacidade de pesquisa na web para informações atualizadas sobre mercado financeiro
+- 🌐 Integração com MongoDB para armazenamento de dados (opcional)
+- 🧩 Múltiplas personalidades adaptáveis ao contexto da conversa
+- 🗣️ Linguagem natural brasileira com variações regionais
+- 😊 Análise de sentimento para respostas empáticas
+- ⌨️ Simulação realista de digitação humana
 
 ## Requisitos
 
 - Python 3.8+
-- Biblioteca python-telegram-bot
-- API Key da OpenAI
-- Acesso à internet para pesquisas web
-- MongoDB (opcional, para armazenamento escalável)
+- Token de Bot do Telegram (obtenha com [@BotFather](https://t.me/BotFather))
+- Chave de API da OpenAI
+- MongoDB (opcional, para armazenamento avançado)
 
 ## Instalação
 
-1. Clone o repositório
-2. Instale as dependências:
+1. Clone o repositório:
+```bash
+git clone <url-do-repositorio>
+cd <nome-da-pasta>
 ```
+
+2. Instale as dependências:
+```bash
 pip install -r requirements.txt
 ```
-3. Crie um arquivo `.env` baseado no `.env.example`:
+
+3. Se você estiver usando spaCy, instale o modelo em português (ou inglês como fallback):
+```bash
+# Para português
+python -m spacy download pt_core_news_sm
+
+# Ou para inglês (fallback)
+python -m spacy download en_core_web_sm
 ```
-cp .env.example .env
+
+4. Crie um arquivo `.env` na raiz do projeto com suas credenciais:
 ```
-4. Edite o arquivo `.env` e adicione seu token do Telegram e sua API Key da OpenAI:
-```
-TELEGRAM_TOKEN=seu_token_do_telegram_aqui
-OPENAI_API_KEY=sua_chave_api_da_openai_aqui
-# Opcional: adicione a URI do MongoDB para armazenamento escalável
-MONGODB_URI=sua_string_de_conexao_mongodb
+TELEGRAM_TOKEN=seu_token_aqui
+OPENAI_API_KEY=sua_chave_api_aqui
+MONGODB_URI=sua_uri_mongodb_aqui (opcional)
 ```
 
 ## Uso
 
-Execute o bot com:
-```
+Execute o bot:
+```bash
 python main.py
 ```
 
-## Modelo Utilizado
+Inicie uma conversa com seu bot no Telegram e use o comando `/start` para começar.
 
-### OpenAI (GPT-4o)
-- Configurado para respostas concisas e naturais
-- Conhecimento abrangente sobre finanças e investimentos
-- Requer API Key da OpenAI
+## Sistema de Personalidades
 
-## Pesquisa na Web
+O bot possui quatro personalidades distintas que são automaticamente selecionadas com base no contexto da conversa:
 
-O bot pode pesquisar informações atualizadas na internet para responder perguntas sobre:
-- Cotações atuais
-- Taxas de juros
-- Notícias recentes do mercado
-- Tendências econômicas
-- Outros dados financeiros atualizados
+- **Default**: Consultor financeiro experiente e direto
+- **Technical**: Especialista técnico para tópicos complexos
+- **Friendly**: Consultor acessível para iniciantes
+- **Mentor**: Conselheiro didático para planejamento financeiro
+
+Cada personalidade possui características específicas de linguagem, formalidade e estilo conversacional.
 
 ## Armazenamento de Dados
 
-O bot suporta dois métodos de armazenamento de dados:
+O bot oferece dois modos de armazenamento:
 
-### Armazenamento Local (Padrão)
-- Usa arquivo JSON local para armazenar dados dos usuários
-- Adequado para testes e uso com poucos usuários
-- Não requer configuração adicional
+1. **Arquivo Local**: Armazena dados em `user_memory.json` (padrão)
+2. **MongoDB**: Para uso em produção, oferece maior escalabilidade e persistência
 
-### MongoDB (Recomendado para Produção)
-- Armazenamento escalável em banco de dados MongoDB
-- Suporta grande número de usuários simultaneamente
-- Persistência de dados confiável
-- Requer configuração da variável de ambiente `MONGODB_URI`
-- Para mais detalhes, consulte [MONGODB_INTEGRATION.md](MONGODB_INTEGRATION.md)
+Para usar o MongoDB, defina a variável de ambiente `MONGODB_URI` no arquivo `.env`.
 
-## Logs
+## Humanização do Bot
 
-Os logs detalhados são salvos em `bot_debug.log` para facilitar a depuração.
+O bot implementa diversas técnicas para simular comportamento humano:
+
+- Variações de tempo de resposta baseadas na complexidade da pergunta
+- Indicadores de "pensando" e "digitando" realistas
+- Uso de expressões regionais brasileiras
+- Estilo conversacional adaptativo
+- Perguntas de follow-up contextuais
+- Detecção de nível de conhecimento do usuário
+
+Para mais detalhes, consulte [HUMANIZACAO.md](HUMANIZACAO.md).
 
 ## Implantação
 
-Para informações sobre como implantar o bot em servidores de produção, consulte [DEPLOY.md](DEPLOY.md). 
+Para instruções detalhadas sobre como implantar o bot em diferentes plataformas (Heroku, PythonAnywhere, VPS, etc.), consulte [DEPLOY.md](DEPLOY.md).
+
+## Integração com MongoDB
+
+Para instruções sobre como configurar e utilizar o MongoDB com o bot, consulte [MONGODB_INTEGRATION.md](MONGODB_INTEGRATION.md).
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE). 
